@@ -47,8 +47,9 @@ for window_handle in driver.window_handles:
 
 pageaftersearch = requests.get(driver.current_url)
 print(driver.current_url)
-soup = BeautifulSoup(pageaftersearch.content,"lxml")
-productlist = soup.find_all('div',class_='mojar-element-image')
+soup1 = BeautifulSoup(pageaftersearch.content,"html.parser")
+productlist = soup1.find_all('div',class_='mojar-element-image')
+print(soup1)
 productlinks = []
 print(productlist)
 
