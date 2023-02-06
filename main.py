@@ -27,7 +27,7 @@ translation = translator.translate("This is a pen.")
 '''
 
 #selenium webdriver using
-ckw = ["电子产品"]
+ckw = ["小工具"]
 pathtowebdriver= ('C:\\Users\\konch\\OneDrive\\Desktop\\chromedriver.exe')
 driver = webdriver.Chrome(pathtowebdriver)
 driver.get(url=homeurl)
@@ -47,9 +47,9 @@ for window_handle in driver.window_handles:
 
 pageaftersearch = requests.get(driver.current_url)
 print(driver.current_url)
-soup1 = BeautifulSoup(pageaftersearch.content,"html.parser")
-productlist = soup1.find_all('div',class_='mojar-element-image')
+soup1 = BeautifulSoup(pageaftersearch.content,"lxml")
 print(soup1)
+productlist = soup1.find_all('div',class_='mojar-element-image')
 productlinks = []
 print(productlist)
 
